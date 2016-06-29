@@ -1,2 +1,2 @@
 # magento2-smtp
-Magento 2 SMTP
+Configure Magento 2 to use custom SMTP server to send email
