@@ -1,0 +1,4 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../Magento/Email/etc/email_templates.xsd">
+    <template id="magewonder_smtp_test_template" label="MageWonder SMTP Test Email" file="test.html" type="html" module="MageWonder_Smtp" area="frontend"/>
+</config>

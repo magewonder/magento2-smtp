@@ -1,0 +1,31 @@
+<table>
+    <tr>
+        <td>
+            <button style="" onclick="sendMail('<?php echo $this->getButtonUrl() ?>')" class="scalable" type="button" id="<?php echo $this->getHtmlId() ?>">
+                <span><?php echo $this->escapeHtml($this->getButtonLabel()) ?></span>
+            </button>
+        </td>
+    </tr>
+</table>
+
+<script>
+    require([
+        "jquery",
+        "jquery/ui"
+    ], function(jQuery){
+        sendMail = function($url) {
+            jQuery.ajax(
+                {
+                    type: "POST",
+                    url: $url,
+                    data: {
+                        email: $("magewondersmtp_general_test_email").value,
+                        provider: $("magewondersmtp_general_provider").value,
+                        apikey: $("magewondersmtp_general_apikey").value
+                    },
+                    showLoader: true
+                }
+            );
+        };
+    });
+</script>

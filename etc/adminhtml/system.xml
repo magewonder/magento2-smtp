@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../../Magento/Config/etc/system_file.xsd">
+    <system>
+        <tab id="magewonder" translate="label" sortOrder="450">
+            <label>MageWonder</label>
+        </tab>
+        <section id="magewondersmtp" translate="label" type="text" sortOrder="300" showInDefault="1" showInWebsite="1" showInStore="1">
+            <class>separator-top</class>
+            <label>SMTP</label>
+            <tab>magewonder</tab>
+            <resource>MageWonder_Smtp::config_smtp</resource>
+            <group id="general" translate="label" type="text" sortOrder="0" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>SMTP General Configuration</label>
+                <field id="active" translate="label" type="select" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Enabled</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="provider" translate="label" type="select" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Provider</label>
+                    <source_model>MageWonder\Smtp\Model\Config\Source\Provider</source_model>
+                </field>
+                <field id="apikey" translate="label" type="text" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>API Key</label>
+                    <depends>
+                        <field id="*/*/active">1</field>
+                    </depends>
+                </field>
+                <field id="test_email" translate="label" type="text" sortOrder="50" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Send test email to</label>
+                    <depends>
+                        <field id="*/*/active">1</field>
+                    </depends>
+                </field>
+                <field id="send_email" translate="button_label" type="button" sortOrder="60" showInDefault="1" showInWebsite="0" showInStore="1">
+                    <label></label>
+                    <button_label>Send Test Email</button_label>
+                    <frontend_model>MageWonder\Smtp\Block\Adminhtml\SendTestEmail</frontend_model>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>
